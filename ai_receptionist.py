@@ -31,7 +31,7 @@ class AIReceptionist:
             serpapi_key = SERPAPI_API_KEY
             if serpapi_key:
                 params = {
-                    "engine": "bing",
+                    "engine": "google",
                     "gl": "us",
                     "hl": "en",
                 }
@@ -43,6 +43,9 @@ class AIReceptionist:
                 )
             else:
                 raise ValueError("SerpAPI key not found.")
+        except ImportError:
+            print("Search functionality will be disabled: Could not import serpapi python package. Please install it with `pip install google-search-results`.")
+            self.search_tool = None
         except Exception as e:
             print(f"Search functionality will be disabled: {e}")
             self.search_tool = None
