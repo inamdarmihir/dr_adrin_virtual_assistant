@@ -5,18 +5,9 @@ from enum import Enum
 from typing import Optional
 from langchain_community.utilities import SerpAPIWrapper
 from langchain_core.tools import Tool
-from config import SERPAPI_API_KEY
-
-import re
-import os
-import time
-import random
-from enum import Enum
-from typing import Optional
-from langchain_community.utilities import SerpAPIWrapper
-from langchain_core.tools import Tool
+from config import SERPAPI_API_KEY, 
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, VectorParams
+from qdrant_client.http import models
 
 class ReceptionistState(Enum):
     INITIAL = "initial"
@@ -27,7 +18,7 @@ class ReceptionistState(Enum):
     MESSAGE = "message"
 
 def get_serpapi_key():
-    return SERPAPI_API_KEY  # Use the hardcoded key instead of environment variable
+    return SERPAPI_API_KEY
 
 class AIReceptionist:
     def __init__(self):
@@ -39,14 +30,17 @@ class AIReceptionist:
         self.message: Optional[str] = None
         self.emergency_advice: Optional[str] = None
         
-        # Initialize Qdrant client
-        self.qdrant_client = QdrantClient("localhost", port=6333)
+        # Initialize Qdrant client for cloud
+        self.qdrant_client = QdrantClient(
+            url=QDRANT_URL,
+            api_key=QDRANT_API_KEY
+        )
         
         # Create collection if it doesn't exist
         self.collection_name = "emergency_database"
         self.qdrant_client.recreate_collection(
             collection_name=self.collection_name,
-            vectors_config=VectorParams(size=1, distance=Distance.DOT),
+            vectors_config=models.VectorParams(size=1, distance=models.Distance.DOT),
         )
         
         # Populate Qdrant with emergency data
@@ -119,11 +113,11 @@ class AIReceptionist:
             self.qdrant_client.upsert(
                 collection_name=self.collection_name,
                 points=[
-                    {
-                        "id": i,
-                        "vector": [1.0],
-                        "payload": {"emergency_type": emergency_type, "advice": advice}
-                    }
+                    models.PointStruct(
+                        id=i,
+                        vector=[1.0],
+                        payload={"emergency_type": emergency_type, "advice": advice}
+                    )
                 ]
             )
 
