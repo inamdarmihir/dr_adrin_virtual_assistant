@@ -1,46 +1,105 @@
-# AI Receptionist
+# Dr. Adrin Virtual Assistant
 
-This project implements an AI Receptionist that can handle emergency situations and provide relevant advice.
+Welcome to the Dr. Adrin Virtual Assistant project! This repository contains the code and resources needed to set up and run a virtual assistant designed to assist doctors by managing patient interactions, providing emergency guidance, and handling various administrative tasks.
 
-## Setup
+## Table of Contents
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/your-username/ai-receptionist.git
-   cd ai-receptionist
-   ```
+- [Project Overview](#project-overview)
+- [Setup Instructions](#setup-instructions)
+- [How It Works](#how-it-works)
+- [Requirements](#requirements)
+- [Running the Project](#running-the-project)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
-2. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
+## Project Overview
 
-3. Set up your SerpAPI key:
-   - Sign up for a SerpAPI account and get your API key
-   - Replace the placeholder API key in `config.py` with your actual key
+The Dr. Adrin Virtual Assistant is an AI-powered assistant tailored for healthcare professionals. It efficiently manages patient communications, assesses emergencies, and offers immediate assistance. The assistant leverages advanced natural language processing (NLP) techniques, utilizing tools like LangChain and Qdrant for intelligent interaction and quick information retrieval.
 
-## Running the AI Receptionist
+## Setup Instructions
 
-To start the AI Receptionist, run:
+### Prerequisites
 
+Before you begin, ensure you have the following installed:
+
+- Python 3.10 or higher
+- Git
+
+### Cloning the Repository
+
+Start by cloning the repository to your local machine:
+
+```bash
+git clone https://github.com/inamdarmihir/dr_adrin_virtual_assistant.git
+cd dr_adrin_virtual_assistant
 ```
-python main.py
+
+### Installing Dependencies
+
+To install the required Python packages, run the following command:
+
+```bash
+pip install -r requirements.txt
 ```
 
-Follow the prompts to interact with the AI Receptionist.
+This command will install all the necessary dependencies listed in the `requirements.txt` file.
 
-## Project Structure
+## How It Works
 
-- `main.py`: Entry point of the program
-- `ai_receptionist.py`: Main AIReceptionist class
-- `config.py`: Configuration settings
-- `emergency_database.py`: Emergency advice database
-- `requirements.txt`: List of required Python packages
+The virtual assistant is built to handle a wide range of scenarios that doctors encounter daily. It is designed with the following core functionalities:
+
+- **Emergency Detection**: The assistant can detect emergency situations based on patient inputs and provide appropriate next steps.
+- **Information Retrieval**: It uses a vector database to quickly retrieve and provide relevant medical information.
+- **Location Handling**: The assistant can manage user location data to offer accurate directions and estimated arrival times.
+- **Patient Interaction**: It interacts with patients to confirm emergencies, leave messages, or provide further assistance based on the user's needs.
+
+The system is designed for robustness, with capabilities to handle various edge cases and concurrent user interactions through asynchronous programming.
+
+## Requirements
+
+The project relies on several key Python packages:
+
+- `langchain==0.0.316`
+- `langchain-community==0.0.8`
+- `langchain_openai`
+- `langchain_core`
+- `google-search-results==2.4.2`
+- `qdrant_client`
+
+These dependencies ensure that the virtual assistant can handle complex tasks efficiently.
+
+## Running the Project
+
+Once the dependencies are installed, you can start the virtual assistant by running the Jupyter notebook provided in the repository. Follow these steps:
+
+1. Launch Jupyter Notebook in your terminal:
+
+   ```bash
+   jupyter notebook
+   ```
+
+2. Open the `Untitled30.ipynb` notebook.
+3. Follow the instructions in the notebook to start the assistant.
+
+## Troubleshooting
+
+If you encounter any issues while setting up or running the project, consider the following steps:
+
+- **Dependency Issues**: Ensure all required packages are installed correctly by reviewing the `requirements.txt` file.
+- **Python Version**: Make sure you are using Python 3.10 or higher.
+- **Runtime Errors**: Check the Jupyter notebook for any specific error messages and follow the suggestions provided.
+
+For further assistance, feel free to open an issue on the GitHub repository.
 
 ## Contributing
 
-Feel free to submit issues and pull requests to improve the AI Receptionist.
+Contributions to the Dr. Adrin Virtual Assistant project are welcome! If you have any improvements or suggestions, please submit a pull request or open an issue on GitHub.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for using the Dr. Adrin Virtual Assistant! We hope it enhances your workflow and improves patient care.
