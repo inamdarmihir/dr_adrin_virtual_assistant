@@ -1,2 +1,5 @@
 langchain==0.0.316
 langchain-community==0.0.8
+langchain_openai
+langchain_core
+google-search-results==2.4.2
