@@ -5,7 +5,7 @@ from enum import Enum
 from typing import Optional
 from langchain_community.utilities import SerpAPIWrapper
 from langchain_core.tools import Tool
-from config import SERPAPI_API_KEY, 
+from config import SERPAPI_API_KEY, QDRANT_URL, QDRANT_API_KEY
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
 
