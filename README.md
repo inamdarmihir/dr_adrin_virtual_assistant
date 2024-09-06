@@ -1,4 +1,4 @@
-# Dr. Adrin Virtual Assistant
+# MedAgent: Dr. Adrin Virtual Assistant
 
 Welcome to the Dr. Adrin Virtual Assistant project! This repository contains the code and resources needed to set up and run a virtual assistant designed to assist doctors by managing patient interactions, providing emergency guidance, and handling various administrative tasks.
 
